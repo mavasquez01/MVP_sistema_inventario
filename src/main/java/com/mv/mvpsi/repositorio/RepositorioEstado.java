@@ -1,15 +1,11 @@
 package com.mv.mvpsi.repositorio;
 
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 import com.mv.mvpsi.modelo.Estado;
-import com.mv.mvpsi.modelo.Producto;
 
 @Repository
-public interface RepositorioProducto extends JpaRepository<Producto, Long> {
-    List<Producto> findByEstado(Estado estado);
+public interface RepositorioEstado extends JpaRepository<Estado, Long> {
+    
 }

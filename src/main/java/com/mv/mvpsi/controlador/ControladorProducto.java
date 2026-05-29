@@ -1,38 +1,50 @@
 package com.mv.mvpsi.controlador;
 
 import org.springframework.web.bind.annotation.*;
+
+import com.mv.mvpsi.modelo.Estado;
 import com.mv.mvpsi.modelo.Producto;
+import com.mv.mvpsi.repositorio.RepositorioEstado;
 import com.mv.mvpsi.repositorio.RepositorioProducto;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/productos")
-@CrossOrigin(origins = "*") // Permite que tu frontend se conecte sin problemas de CORS
+@CrossOrigin(origins = "*")
 public class ControladorProducto {
 
     private final RepositorioProducto repository;
+    private final RepositorioEstado repositoryEstado;
 
-    // Inyección de dependencias por constructor
-    public ControladorProducto(RepositorioProducto repository) {
+    public ControladorProducto(RepositorioProducto repository, RepositorioEstado repositoryEstado) {
         this.repository = repository;
+        this.repositoryEstado = repositoryEstado;
     }
 
-    // 1. Obtener todos los productos
+
     @GetMapping
-    public List<Producto> obtenerTodos() {
-        return repository.findAll();
+    public List<Producto> obtenerTodos() { 
+        Estado estado = repositoryEstado.findById(1L).orElseThrow();
+        return repository.findByEstado(estado);
     }
 
-    // 2. Guardar un nuevo producto
-    @HttpsPost
+
+    @PostMapping
     public Producto crearProducto(@RequestBody Producto producto) {
         return repository.save(producto);
     }
 
-    // 3. Eliminar un producto
     @DeleteMapping("/{id}")
-    public void eliminarProducto(@PathVariable Long id) {
-        repository.deleteById(id);
-    }
+    public void desactivarProducto(@PathVariable Long id) {
+        //Encontramos el objeto a modificar en la BDD y el traemos el objeto estado de id 2 (desactivado))
+        Producto producto = repository.findById(id).orElseThrow();
+        Estado estado = repositoryEstado.findById(2L).orElseThrow(); 
+        //Modificamos el estado del objeto
+        producto.setEstado(estado); 
+        //Guardamos a BDD
+        repository.save(producto); 
+        
+    } 
+
 }
