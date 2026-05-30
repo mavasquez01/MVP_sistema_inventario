@@ -12,7 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SConfig {
 
-     @Bean
+    @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -22,20 +22,25 @@ public class SConfig {
             throws Exception {
 
         http
-            .csrf(csrf -> csrf.disable())
+                .csrf(csrf -> csrf.disable())
 
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/login", "/css/**").permitAll()
-                .anyRequest().authenticated()
-            )
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(
+                                "/",
+                                "/index.html",
+                                "/register.html",
+                                "/css/**",
+                                "/js/**")
+                        .permitAll()
+                        .anyRequest().authenticated())
 
-            .formLogin(form -> form
-                .defaultSuccessUrl("/", true)
-            )
+                .formLogin(form -> form
+                        .loginPage("/index.html")
+                        .defaultSuccessUrl("/productos.html", true)
+                        .permitAll())
 
-            .logout(logout -> logout
-                .logoutSuccessUrl("/login")
-            );
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/index.html"));
 
         return http.build();
     }

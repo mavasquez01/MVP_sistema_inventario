@@ -15,7 +15,7 @@ public class ControladorUser {
         this.service = service;
     }
 
-    @PostMapping("/registro")
+    @PostMapping("/register")
     public User registrarUsuario(
             @RequestBody User usuario
     ) {
