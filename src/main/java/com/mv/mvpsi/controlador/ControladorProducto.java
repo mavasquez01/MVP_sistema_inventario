@@ -44,7 +44,21 @@ public class ControladorProducto {
         producto.setEstado(estado); 
         //Guardamos a BDD
         repository.save(producto); 
-        
-    } 
+
+    }
+
+    @PutMapping("/{id}")
+    public Producto actualizarProducto(
+            @PathVariable Long id,
+            @RequestBody Producto productoActualizado) {
+
+        Producto producto = repository.findById(id).orElseThrow();
+
+        producto.setNombre(productoActualizado.getNombre());
+        producto.setPrecio(productoActualizado.getPrecio());
+        producto.setEstado(productoActualizado.getEstado());
+
+        return repository.save(producto);
+    }
 
 }

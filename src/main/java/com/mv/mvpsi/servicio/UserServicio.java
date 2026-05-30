@@ -22,6 +22,10 @@ public class UserServicio {
 
     public User crearUsuario(User usuario) {
 
+        if (repository.findByCorreo(usuario.getCorreo()).isPresent()) {
+        throw new RuntimeException("El correo ya está registrado");
+    }
+
         usuario.setContrasena(
                 passwordEncoder.encode(usuario.getContrasena())
         );

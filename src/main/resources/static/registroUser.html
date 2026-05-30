@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <title>Registro de Usuario</title>
+    </head>
+    <body class="bg-dark">
+        <!-- Contenedor principal centrado -->
+        <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+            <!-- Card Shadow para mejor estilo visual -->
+            <div class="card shadow p-4" style="width: 400px;">
+                <!-- Formulario sin validaciones de modo que se busca probar el funcionamiento de la encriptación --> 
+                <div class="card-body">
+                    <h2 class="text-center mb-4">Crear Usuario</h2>
+                    <div id="alertaError" class="alert alert-danger d-none text-center">
+                        Error al registrar el usuario. Inténtalo de nuevo.
+                    </div>
+                    <form id="formularioRegistro">
+                        <div class="mb-3">
+                            <label for="correo" class="form-label">Correo</label>
+                            <input name="username" type="email" id="correo" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input name="password" type="password" id="password" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            Registrarse
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/registro.js"></script>
+    </body>
+</html>

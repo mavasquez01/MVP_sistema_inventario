@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <title>Editar Productos</title>
+    </head>
+    <body>  
+         <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <div class="container">
+                
+                <a class="navbar-brand" href="home.php">AKITO</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="menuPrincipal" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <form action="/logout" method="post">
+                                <button class="nav-link" type="submit">Cerrar sesión</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main class="container mt-3">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="card shadow">
+                        <div class="card-header">
+                            <h1>Editar producto</h1>
+                        </div>
+                        <div class="card-body">
+                            <div id="alertaError" class="alert alert-danger d-none text-center">
+                                Error al registrar el usuario. Inténtalo de nuevo.
+                            </div>
+                            <form id="formularioEditarProducto" >
+                                
+                                <input type="hidden" 
+                                       name="id">
+                                
+                                <div class="mb-1">
+                                    <label for="nombre" class="form-label">Nombre producto</label>
+                                    <input 
+                                        class="form-control"
+                                        type="text" 
+                                        name="nombre" 
+                                        id="nombre"
+                                        placeholder="Ej:Teclado Razor"
+                                        >
+                                </div>
+                                <div class="mb-1">
+                                    <label for="descripcion" class="form-label">Descripción</label>
+                                    <input 
+                                        class="form-control"
+                                        type="text" 
+                                        name="descripcion" 
+                                        id="descripcion"
+                                        placeholder="Ej:Teclado Razor rgn 100%"
+                                        ">
+                                </div>
+                                <div class="mb-1">
+                                    <label for="precio" class="form-label">Precio</label>
+                                    <input 
+                                        class="form-control"
+                                        type="number" 
+                                        name="precio" 
+                                        id="precio"
+                                        placeholder="Ej:120.000"
+                                        ">
+                                </div>
+                                <div class="mb-1">
+                                    <label for="stock" class="form-label">Stock</label>
+                                    <input 
+                                        class="form-control"
+                                        type="number" 
+                                        name="stock" 
+                                        id="stock"
+                                        placeholder="Ej:10"
+                                        ">
+                                </div>
+                                <div class="mb-1">
+                                    <label for="fecha" class="form-label">Fecha de registro</label>
+                                    <input 
+                                        class="form-control"
+                                        type="date" 
+                                        name="fecha" 
+                                        id="fecha"
+                                       ">
+                                </div>
+                                
+                                <div class="d-flex justify-content-between">
+                                    <a href="productos.html" class="btn btn-secondary">
+                                        Volver
+                                    </a>
+                                    <button type="submit" class="btn btn-success">
+                                        Editar producto
+                                    </button>
+                                    
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>  
+            </div>  
+        </main>
+        
+        <footer class="bg-dark text-white py-3 text-center fixed-bottom">
+            <p>2026 AKITO - Todos los derechos reservados.</p>
+        </footer>      
+        <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    </body>
+</html>

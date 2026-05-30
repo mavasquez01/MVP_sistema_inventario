@@ -13,7 +13,6 @@ public class Producto {
     private String nombre;
     private String codigo;
     private int cantidad;
-    private int stockMinimo;
 	private String descripcion;
 	private int precio;
 	private LocalDateTime fechaCreacion;
@@ -53,14 +52,6 @@ public class Producto {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
-    }
-
-    public int getStockMinimo() {
-        return stockMinimo;
-    }
-
-    public void setStockMinimo(int stockMinimo) {
-        this.stockMinimo = stockMinimo;
     }
 
     public String getDescripcion() {
