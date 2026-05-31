@@ -30,14 +30,13 @@
                 <div class="col">
                     <div class="card shadow">
                         <div class="card-header">
-                            <h1>Agregar Producto</h1>
+                            <h1>Editar producto</h1>
                         </div>
                         <div class="card-body">
                             <div id="alertaError" class="alert alert-danger d-none text-center">
                                 Error al registrar el producto. Inténtalo de nuevo.
                             </div>
-                            <form id="formProducto" >
-                                
+                            <form id="formularioEditarProducto" >                     
                                 <div class="mb-1">
                                     <label for="nombre" class="form-label">Nombre producto</label>
                                     <input 
@@ -56,7 +55,7 @@
                                         name="descripcion" 
                                         id="descripcion"
                                         placeholder="Ej:Teclado Razor rgn 100%"
-                                        ">
+                                        >
                                 </div>
                                 <div class="mb-1">
                                     <label for="precio" class="form-label">Precio</label>
@@ -66,7 +65,7 @@
                                         name="precio" 
                                         id="precio"
                                         placeholder="Ej:120.000"
-                                        ">
+                                        >
                                 </div>
                                 <div class="mb-1">
                                     <label for="stock" class="form-label">Stock</label>
@@ -76,7 +75,7 @@
                                         name="stock" 
                                         id="stock"
                                         placeholder="Ej:10"
-                                        ">
+                                        >
                                 </div>
                                 <div class="mb-1">
                                     <label for="fecha" class="form-label">Fecha de registro</label>
@@ -85,7 +84,7 @@
                                         type="date" 
                                         name="fecha" 
                                         id="fecha"
-                                       ">
+                                       >
                                 </div>
                                 
                                 <div class="d-flex justify-content-between">
@@ -93,7 +92,7 @@
                                         Volver
                                     </a>
                                     <button type="submit" class="btn btn-success">
-                                        Agregar producto
+                                        Editar producto
                                     </button>
                                     
                                 </div>
@@ -109,6 +108,6 @@
             <p>2026 AKITO - Todos los derechos reservados.</p>
         </footer>      
         <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
-        <script src="js/addProducto.js" type="text/javascript"></script>
+        <script src="js/editProducto.js" type="text/javascript"></script>
     </body>
 </html>

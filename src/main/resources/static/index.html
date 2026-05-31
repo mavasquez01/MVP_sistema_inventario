@@ -17,17 +17,17 @@
                     <div id="alertaError" class="alert alert-danger d-none text-center">
                         Correo o contraseña incorrectos.
                     </div>
-                    <form action="/login"  method="post" id="formularioLogin">
+                    <form action="/login" method="post" id="formularioLogin" onsubmit="alert('SUBMIT');">
                         <div class="mb-3">
                             <label for="correo" class="form-label">Correo</label>
-                            <input name="username" type="email" id="correo" class="form-control">
+                            <input name="correo" type="email" id="correo" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Contraseña</label>
                             <input name="password" type="password" id="password" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <a href="/register" class="text-decoration-none">¿No tienes cuenta? Regístrate!</a>
+                            <a href="/registroUser.html" class="text-decoration-none text-dark">¿No tienes cuenta? Regístrate!</a>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">
                             Ingresar

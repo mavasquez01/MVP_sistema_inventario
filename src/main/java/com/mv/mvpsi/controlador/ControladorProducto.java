@@ -53,12 +53,22 @@ public class ControladorProducto {
             @RequestBody Producto productoActualizado) {
 
         Producto producto = repository.findById(id).orElseThrow();
+        Estado estado = repositoryEstado.findById(productoActualizado.getEstado().getId()).orElseThrow();
 
+        
         producto.setNombre(productoActualizado.getNombre());
+        producto.setDescripcion(productoActualizado.getDescripcion());
         producto.setPrecio(productoActualizado.getPrecio());
-        producto.setEstado(productoActualizado.getEstado());
+        producto.setCantidad(productoActualizado.getCantidad());
+        producto.setFechaCreacion(productoActualizado.getFechaCreacion());
+        producto.setEstado(estado);
 
         return repository.save(producto);
+    }
+
+    @GetMapping("/{id}")
+    public Producto obtenerProductoPorId(@PathVariable Long id) {
+        return repository.findById(id).orElseThrow();
     }
 
 }

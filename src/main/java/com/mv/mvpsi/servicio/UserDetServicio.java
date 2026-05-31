@@ -20,7 +20,7 @@ public class UserDetServicio implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String correo)
             throws UsernameNotFoundException {
-
+        System.out.println("LOGIN INTENTANDO: " + correo);
         User user = RepositorioUser.findByCorreo(correo)
                 .orElseThrow(() ->
                     new UsernameNotFoundException("El correo no existe: " + correo));

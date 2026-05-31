@@ -28,7 +28,9 @@ public class SConfig {
                         .requestMatchers(
                                 "/",
                                 "/index.html",
-                                "/register.html",
+                                "/login",
+                                "/registroUser.html",
+                                "/api/usuarios/register",
                                 "/css/**",
                                 "/js/**")
                         .permitAll()
@@ -37,6 +39,8 @@ public class SConfig {
                 .formLogin(form -> form
                         .loginPage("/index.html")
                         .defaultSuccessUrl("/productos.html", true)
+                        .loginProcessingUrl("/login")
+                        .usernameParameter("correo")
                         .permitAll())
 
                 .logout(logout -> logout

@@ -12,14 +12,13 @@ async function cargarProductos() {
         row.innerHTML = `
             <td>${producto.id}</td>
             <td>${producto.nombre}</td>
-            <td>${producto.codigo}</td>
             <td>${producto.cantidad}</td>
             <td>${producto.descripcion}</td>
             <td>${producto.precio}</td>
             <td>${producto.fechaCreacion}</td>
             <td>
-            <button id="updateBtn" class="btn btn-warning" onClick="editarProducto(${producto.id})">Editar</button>
-            <button id="eliminarBtn" class="btn btn-danger" onClick="eliminarProducto(${producto.id})">Eliminar</button>
+            <button class="btn btn-warning" onClick="editarProducto(${producto.id})">Editar</button>
+            <button class="btn btn-danger" onClick="eliminarProducto(${producto.id})">Eliminar</button>
             </td>
         `;
         tbody.appendChild(row);
@@ -27,19 +26,24 @@ async function cargarProductos() {
 }
 
 function editarProducto(id) {
-    window.location.href = `/editar-producto.html?id=${id}`;
+    window.location.href = `/formEditProducto.html?id=${id}`;
 }
 
 async function eliminarProducto(id) {
 
-    if (!confirm("¿Desea eliminar el producto?")) {
-        return;
-    }
-
-    await fetch(`/api/productos/${id}`, {
+    const response = await fetch(`/api/productos/${id}`, {
         method: "DELETE"
     });
 
+    if (response.ok) {
+        cargarProductos();
+    } else {
+        alert("Error al eliminar producto");
+    }
+
     cargarProductos();
 }
-            
+        
+document.addEventListener("DOMContentLoaded", function () {
+    cargarProductos();
+});

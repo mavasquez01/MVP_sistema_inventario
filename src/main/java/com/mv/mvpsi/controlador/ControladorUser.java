@@ -16,9 +16,8 @@ public class ControladorUser {
     }
 
     @PostMapping("/register")
-    public User registrarUsuario(
-            @RequestBody User usuario
-    ) {
+    public User registrarUsuario(@RequestBody User usuario) {
+        System.out.println("Registrando usuario: " + usuario.getCorreo());
         return service.crearUsuario(usuario);
     }
 }

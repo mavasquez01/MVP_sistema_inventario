@@ -1,6 +1,6 @@
 package com.mv.mvpsi.modelo;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate; 
 
 import jakarta.persistence.*;
 
@@ -11,11 +11,10 @@ public class Producto {
     private Long id;
     
     private String nombre;
-    private String codigo;
     private int cantidad;
 	private String descripcion;
 	private int precio;
-	private LocalDateTime fechaCreacion;
+	private LocalDate fechaCreacion;
 
 	@ManyToOne
     @JoinColumn(name = "estado")
@@ -36,14 +35,6 @@ public class Producto {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
     }
 
     public int getCantidad() {
@@ -70,11 +61,11 @@ public class Producto {
         this.precio = precio;
     }
 
-    public LocalDateTime getFechaCreacion() {
+    public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(LocalDateTime fechaCreacion) {
+    public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
